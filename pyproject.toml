@@ -1,0 +1,39 @@
+[project]
+name = "airbnb-london"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.3",
+    "pandas>=2.3.1",
+    "scikit-learn>=1.7.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "coverage>=7.9.2",
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.2",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+lint.select = ["E", "F", "I", "UP"]
+lint.ignore = ["D203"]
+
+[tool.black]
+line-length = 120
+target-version = ["py312"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --cov"
+testpaths = ["src/tests"]
+pythonpath = ['src']
+
+[tool.coverage.report]
+show_missing = true
